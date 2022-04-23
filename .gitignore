@@ -4,6 +4,10 @@
 *.ap_
 *.aab
 
+# mac os bs 
+*.DS_Store
+.DS_Store/
+
 # Files for the ART/Dalvik VM
 *.dex
 
