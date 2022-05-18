@@ -32,14 +32,27 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String newWeight = ''; 
+  String newWeight = '';
 
   void getWeight() async {
-    var url = Uri.parse('http://localhost:8000/ri/{reps, desired_ri, one_rm}?reps=10&desired_ri=100&one_rm=300');
+    var url = Uri.parse(
+        'http://localhost:8000/ri/{reps, desired_ri, one_rm}?reps=10&desired_ri=100&one_rm=300');
 
     var response = await http.get(url);
     var weight = jsonDecode(response.body);
-    setState(() { newWeight = weight.toString(); });
+    setState(() {
+      newWeight = weight.toString();
+    });
+  }
+  void getWeightGo() async {
+    var go = 'http://localhost:8080/max?weight=10&reps=15';
+    var url = Uri.parse(go);
+
+    var response = await http.get(url);
+    var weight = (response.body);
+    setState(() {
+      newWeight = weight;
+    });
   }
 
   @override
@@ -52,12 +65,12 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              'is the new weight there? ${newWeight}'
-            ),
+            Text('is the new weight there? ${newWeight}'),
             FloatingActionButton(
-    onPressed: () {getWeight();},
-  ),
+              onPressed: () {
+                getWeight();
+              },
+            ),
           ],
         ),
       ),
