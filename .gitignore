@@ -90,3 +90,4 @@ lint/tmp/
 
 # python env
 env/
+/restAPI/ginAPI/owAPI

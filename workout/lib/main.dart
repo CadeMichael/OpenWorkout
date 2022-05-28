@@ -68,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
             Text('is the new weight there? ${newWeight}'),
             FloatingActionButton(
               onPressed: () {
-                getWeight();
+                getWeightGo();
               },
             ),
           ],

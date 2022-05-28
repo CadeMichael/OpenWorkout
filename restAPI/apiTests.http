@@ -1,0 +1,4 @@
+# -*- Rest Client Tests -*-
+
+# checking a simple get request for calculating ORM
+GET http://localhost:8080/max?reps=10&weight=20
